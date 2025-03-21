@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will You Marry Me?</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #ff6b6b, #4ecdc4);
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+        }
+        .container {
+            text-align: center;
+            color: white;
+            opacity: 0;
+            animation: fadeIn 2s forwards;
+        }
+        h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 1.5em;
+            margin-bottom: 30px;
+        }
+        .heart {
+            width: 50px;
+            height: 50px;
+            background: red;
+            position: relative;
+            transform: rotate(-45deg);
+            animation: pulse 1s infinite;
+            margin: 0 auto;
+        }
+        .heart:before,
+        .heart:after {
+            content: '';
+            width: 50px;
+            height: 50px;
+            background: red;
+            border-radius: 50%;
+            position: absolute;
+        }
+        .heart:before {
+            top: -25px;
+            left: 0;
+        }
+        .heart:after {
+            left: 25px;
+            top: 0;
+        }
+        button {
+            padding: 15px 30px;
+            font-size: 1.2em;
+            border: none;
+            border-radius: 25px;
+            background: #fff;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        button:hover {
+            background: #ffeb3b;
+            transform: scale(1.1);
+        }
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+        @keyframes pulse {
+            0% { transform: rotate(-45deg) scale(1); }
+            50% { transform: rotate(-45deg) scale(1.2); }
+            100% { transform: rotate(-45deg) scale(1); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>[Her Name], You Mean the World to Me</h1>
+        <p>Every moment with you is a treasure, and I can’t imagine my life without you.</p>
+        <div class="heart"></div>
+        <p id="question" style="display: none;">Will You Marry Me?</p>
+        <button onclick="revealQuestion()">Click Here</button>
+    </div>
+
+    <script>
+        function revealQuestion() {
+            const question = document.getElementById('question');
+            question.style.display = 'block';
+            question.style.animation = 'fadeIn 2s forwards';
+            document.querySelector('button').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
